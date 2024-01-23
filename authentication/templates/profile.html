@@ -4,11 +4,13 @@
 
 {% block content %} 
 
-
-
-<h1>Welcome to Your Profile</h1>
-<h2>Hola {{ user }}!</h2>
-
+<div >
+    <div style="width: 70%; margin: 0 auto; text-align: center; padding-top: 30px;">
+        <h1 style="color:  purple;">Welcome to Your Profile</h1>
+        <h2>Hola {{ user }}!</h2>
+        
+    </div>
+    
 {% if messages %}
     {% for m in messages %}
         <p class="bg-success p-3 text-white">{{ m }}</p>
@@ -17,7 +19,7 @@
 <br/>
 
 <div class="col-12 mt-4">
-    <h5>Edit Profile Information</h5>
+    <h5 style="width: 70%; margin: 0 auto;text-align: center; color: #4fd1c5;">Edit Profile Information</h5>
     <form method="post" style="width: 50%; margin: auto" novalidate>
         {% csrf_token %}
         {% if user_form.non_field_errors %}
@@ -60,19 +62,19 @@
     </form>
 </div>
 
-<div class="col-12 mt-4">
+<div style="width: 70%; margin: 0 auto; text-align: center; padding-top: 30px;" class="mt-4">
     <h5>Change Password</h5>
     <p>
         <a class="btn btn-info" href="{% url 'passchange' %}">Change Your Password</a>
-        <a class="btn btn-warning" href="{% url 'passchange2' %}">Change Your Password Without Old Password</a>
+        <br><br><a class="btn btn-warning" href="{% url 'passchange2' %}">Change Your Password Without Old Password</a>
     </p>
 </div>
 <br/>
 <br/>
 
-<div class="col-12 mt-auto">
-    <h5>Tuitions</h5>
-    <form method="post" style="width: 50%; margin: auto" novalidate>
+<div class="col-12 mt-auto" style="padding-bottom: 10px;">
+    <h3 style="width: 70%; margin: 0 auto;text-align: center; color: #4fd1c5;padding: 10px; padding-bottom: 10px; width: 600;">Tuitions</h3>
+    <form method="post" style="width: 50%; margin: auto;padding: 10px;" novalidate>
         {% csrf_token %}
         {% for tuition in tuitions %}
             <div class="form-group">
@@ -82,5 +84,7 @@
         <br/>
     </form>
 </div>
+</div>
+
 
 {% endblock %}
